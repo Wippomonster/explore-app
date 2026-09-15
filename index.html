@@ -60,22 +60,32 @@
         </p>
 
         <form class="flex flex-col sm:flex-row gap-4 mb-8">
-          <input
-            type="text"
-            placeholder="Escriba el nombre del país..."
-            class="flex-1 border border-border rounded-md p-3 text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          />
-          <select id="category-filter" class="border border-border rounded-md p-3 text-body bg-white text-ink dark:bg-slate-800 dark:text-slate-100 transition-colors">
-            <option>Filtrar por región...</option>
-            <option>África</option>
-            <option>América</option>
-            <option>Asia</option>
-            <option>Europa</option>
-            <option>Oceanía</option>
+        <input
+          type="text"
+          placeholder="Escriba el nombre del país..."
+           class="flex-1 border border-border rounded-md p-3 text-body
+           text-ink placeholder:text-ink-muted
+           dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-400
+            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-accent"
+            />
+                      
+          <select
+            id="category-filter"
+            class="border border-border rounded-md p-3 text-body
+             bg-white text-ink
+             dark:bg-slate-800 dark:text-slate-100
+             transition-colors"
+            >
+            <option value="" disabled selected>Filtrar por región...</option>
+            <option value="África">África</option>
+            <option value="América">América</option>
+            <option value="Asia">Asia</option>
+            <option value="Europa">Europa</option>
+            <option value="Oceanía">Oceanía</option>
           </select>
           <button
             type="submit"
-            class="bg-primary text-ink-inverse rounded-md px-6 py-3 font-bold transition-colors hover:bg-accent hover:text-ink-inverse active:bg-orange-600 dark:bg-slate-700 dark:text-sky-400 dark:hover:bg-accent dark:hover:text-white dark:active:bg-orange-600 dark:active:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            class="bg-primary text-ink-inverse rounded-md px-6 py-3 font-bold transition-colors hover:bg-accent hover:text-ink-inverse active:bg-orange-600 dark:bg-slate-700 dark:text-sky-400 dark:hover:bg-accent dark:hover:text-white dark:active:bg-orange-400 dark:active:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Buscar
           </button>
@@ -86,7 +96,7 @@
         <h2 class="text-heading-section font-bold mb-4">Países disponibles</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <!-- Tarjeta ACTIVA: única con página de detalle real -->
+          <!-- Tarjeta ACTIVA, única con página de detalle real -->
           <article class="bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
             <img src="https://flagcdn.com/w320/sv.png" alt="Bandera de El Salvador" class="aspect-3/2 w-full object-cover" />
             <div class="p-4">
@@ -98,11 +108,11 @@
             </div>
           </article>
 
-          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <!-- Tarjeta INACTIVA, el aviso gris solo tapa la bandera al hacer hover/focus -->
           <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
             <div class="relative">
               <img src="https://flagcdn.com/w320/de.png" alt="Bandera de Alemania" class="aspect-3/2 w-full object-cover" />
-              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500/90 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
                 Más información próximamente
               </div>
             </div>
@@ -115,11 +125,11 @@
             </div>
           </article>
 
-          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <!-- Tarjeta INACTIVA, el aviso gris solo tapa la bandera al hacer hover/focus -->
           <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
             <div class="relative">
               <img src="https://flagcdn.com/w320/no.png" alt="Bandera de Noruega" class="aspect-3/2 w-full object-cover" />
-              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500/90 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
                 Más información próximamente
               </div>
             </div>
@@ -132,11 +142,11 @@
             </div>
           </article>
 
-          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <!-- Tarjeta INACTIVA, el aviso gris solo tapa la bandera al hacer hover/focus -->
           <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
             <div class="relative">
               <img src="https://flagcdn.com/w320/mx.png" alt="Bandera de México" class="aspect-3/2 w-full object-cover" />
-              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500/90 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
                 Más información próximamente
               </div>
             </div>
