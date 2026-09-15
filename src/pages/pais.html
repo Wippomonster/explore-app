@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>El Salvador - Explorer App</title>
+</head>
+
+<body class="bg-bg text-ink dark:bg-dark-bg dark:text-dark-text transition-colors">
+
+  <!-- ========================================== -->
+  <!-- HEADER -->
+  <!-- ========================================== -->
+
+  <header class="bg-primary text-ink-inverse dark:bg-dark-header dark:text-dark-accent transition-colors">
+
+    <div class="max-w-6xl mx-auto px-7 py-5 md:px-10">
+
+      <div class="flex items-center justify-between">
+
+        <!-- Logo / Nombre -->
+        <a
+          href="/index.html"
+          class="font-bold text-body-lg"
+        >
+          Explorer App
+        </a>
+
+        <!-- Navegación para Tablet y Desktop -->
+        <nav class="hidden md:flex items-center gap-6">
+
+          <a
+            href="/index.html"
+            class="text-body hover:underline"
+          >
+            Inicio
+          </a>
+
+          <a
+            href="/src/pages/paises.html"
+            class="text-body hover:underline"
+          >
+            Países
+          </a>
+
+          <!-- Modo oscuro -->
+          <label class="flex items-center gap-2 cursor-pointer">
+
+            <span class="text-body">
+              🌙
+            </span>
+
+            <input
+              type="checkbox"
+              data-theme-toggle
+              class="sr-only peer"
+              aria-label="Activar modo oscuro"
+            />
+
+            <span
+              class="relative w-10 h-5 bg-slate-300 rounded-full
+                     peer-focus:outline-none
+                     peer-focus:ring-2
+                     peer-focus:ring-white/50
+                     peer-checked:bg-secondary
+                     after:content-['']
+                     after:absolute
+                     after:top-[2px]
+                     after:left-[2px]
+                     after:bg-white
+                     after:rounded-full
+                     after:h-4
+                     after:w-4
+                     after:transition-all
+                     peer-checked:translate-x-5"
+            ></span>
+
+          </label>
+
+        </nav>
+
+
+        <!-- Botón menú móvil -->
+        <button
+          type="button"
+          data-menu-button
+          aria-expanded="false"
+          aria-label="Abrir menú"
+          class="md:hidden flex items-center justify-center
+                 w-10 h-10 rounded-md
+                 hover:bg-white/10 transition-colors"
+        >
+          <span class="text-2xl">
+            ☰
+          </span>
+        </button>
+
+      </div>
+
+
+      <!-- Menú móvil -->
+      <div
+        data-mobile-menu
+        class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300"
+      >
+
+        <nav class="flex flex-col gap-4 pt-5">
+
+          <a
+            href="/index.html"
+            class="text-body hover:underline"
+          >
+            Inicio
+          </a>
+
+          <a
+            href="/src/pages/paises.html"
+            class="text-body hover:underline"
+          >
+            Países
+          </a>
+
+          <!-- Modo oscuro móvil -->
+          <label class="flex items-center gap-3 cursor-pointer">
+
+            <span class="text-body">
+              Modo oscuro
+            </span>
+
+            <input
+              type="checkbox"
+              data-theme-toggle
+              class="sr-only peer"
+              aria-label="Activar modo oscuro"
+            />
+
+            <span
+              class="relative w-10 h-5 bg-slate-300 rounded-full
+                     peer-focus:outline-none
+                     peer-focus:ring-2
+                     peer-focus:ring-white/50
+                     peer-checked:bg-secondary
+                     after:content-['']
+                     after:absolute
+                     after:top-[2px]
+                     after:left-[2px]
+                     after:bg-white
+                     after:rounded-full
+                     after:h-4
+                     after:w-4
+                     after:transition-all
+                     peer-checked:translate-x-5"
+            ></span>
+
+          </label>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- ========================================== -->
+
+  <main class="max-w-6xl mx-auto px-7 py-12 md:px-10 md:py-16 xl:px-0">
+
+    <!-- Botón regresar -->
+
+    <a
+      href="/src/pages/paises.html"
+      class="inline-flex items-center gap-2
+             bg-secondary text-white
+             px-5 py-3
+             rounded-md
+             text-body
+             font-bold
+             hover:opacity-90
+             transition-opacity"
+    >
+      ← Volver a países
+    </a>
+
+
+    <!-- ========================================== -->
+    <!-- INFORMACIÓN DEL PAÍS -->
+    <!-- ========================================== -->
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 mt-10">
+
+      <!-- ======================================== -->
+      <!-- BANDERA -->
+      <!-- ======================================== -->
+
+      <div class="w-full flex justify-center items-start">
+
+        <img
+          src="https://flagcdn.com/w640/sv.png"
+          alt="Bandera de El Salvador"
+          class="w-full max-w-md lg:max-w-none
+                 aspect-[3/2]
+                 object-cover
+                 rounded-sm
+                 border border-border"
+        />
+
+      </div>
+
+
+<!--INFORMACIÓN-->
+
+<div
+  class="w-full max-w-md mx-auto lg:max-w-none
+         text-center lg:text-left"
+>
+
+  <!-- Nombre del país -->
+
+  <h1
+    class="text-2xl sm:text-heading-section lg:text-display
+           font-bold
+           mb-8"
+  >
+    El Salvador
+  </h1>
+
+
+  <!-- Datos del país -->
+
+  <div class="grid grid-cols-2 gap-7">
+
+    <!-- Capital -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Capital
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        San Salvador
+      </p>
+
+    </div>
+
+
+    <!-- Región -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Región
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        América Central
+      </p>
+
+    </div>
+
+
+    <!-- Población -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Población
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        6,366,000
+      </p>
+
+    </div>
+
+
+    <!-- Idioma -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Idioma
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        Español
+      </p>
+
+    </div>
+
+
+    <!-- Dominio -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Dominio
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        .sv
+      </p>
+
+    </div>
+
+
+    <!-- Moneda -->
+
+    <div class="text-center lg:text-left">
+
+      <p class="text-body font-bold mb-1">
+        Moneda
+      </p>
+
+      <p class="text-body-lg text-secondary dark:text-dark-accent">
+        Dólar estadounidense ($)
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+  <!-- ========================================== -->
+  <!-- FOOTER -->
+  <!-- ========================================== -->
+
+  <footer
+    class="bg-primary text-ink-inverse
+           dark:bg-dark-header dark:text-dark-accent
+           mt-16
+           transition-colors"
+  >
+
+    <div class="max-w-6xl mx-auto px-7 py-5 md:px-10">
+
+      <p class="font-bold text-body-lg">
+        Explorer App
+      </p>
+
+      <p class="text-body">
+        ©2026 Explorer App. Universidad de Oriente · Diseño Web Adaptable
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ========================================== -->
+  <!-- TYPESCRIPT -->
+  <!-- ========================================== -->
+
+  <script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>

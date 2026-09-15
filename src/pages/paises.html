@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore App - Listado de países</title>
+  </head>
+  <body class="bg-bg text-ink dark:bg-slate-900 dark:text-slate-100 transition-colors">
+    <header class="bg-primary dark:bg-slate-700 text-ink-inverse dark:text-[#2DD4BF] relative transition-colors">
+      <div class="max-w-6xl mx-auto flex items-center justify-between gap-4 p-4">
+        <p class="font-bold text-body-lg">Where in the world?</p>
+
+        <nav class="hidden sm:flex items-center gap-6">
+          <ul class="flex items-center gap-6">
+            <li><a href="/index.html" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Inicio</a></li>
+            <li><a href="/src/pages/paises.html" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Explorar Países</a></li>
+            <li><a href="#" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Acerca de</a></li>
+          </ul>
+          <label class="relative inline-flex items-center w-11 h-6 shrink-0 cursor-pointer">
+            <input type="checkbox" data-theme-toggle class="sr-only peer" />
+            <span class="absolute inset-0 rounded-full bg-ink-inverse/30 peer-checked:bg-slate-900 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2"></span>
+            <span class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-transform peer-checked:translate-x-5"></span>
+            <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center text-[10px] leading-none transition-opacity peer-checked:opacity-0">☀️</span>
+            <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center text-[10px] leading-none opacity-0 transition-opacity peer-checked:opacity-100 peer-checked:translate-x-5">🌙</span>
+          </label>
+        </nav>
+
+        <button data-menu-button type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú" class="sm:hidden text-2xl leading-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">
+          ☰
+        </button>
+      </div>
+
+      <div id="mobile-menu" data-mobile-menu class="sm:hidden overflow-hidden max-h-0 opacity-0 transition-all duration-300 bg-primary dark:bg-slate-700 border-t border-ink-inverse/20 px-4">
+        <ul class="flex flex-col gap-3 pt-3">
+          <li><a href="/index.html" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Inicio</a></li>
+          <li><a href="/src/pages/paises.html" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Explorar Países</a></li>
+          <li><a href="#" class="hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent rounded-sm">Acerca de</a></li>
+        </ul>
+        <label class="inline-flex items-center gap-2 cursor-pointer my-3">
+          <span class="relative inline-flex items-center w-11 h-6 shrink-0">
+            <input type="checkbox" data-theme-toggle class="sr-only peer" />
+            <span class="absolute inset-0 rounded-full bg-ink-inverse/30 peer-checked:bg-slate-900 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2"></span>
+            <span class="absolute left-1 top-1 w-4 h-4 rounded-full bg-white transition-transform peer-checked:translate-x-5"></span>
+            <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center text-[10px] leading-none transition-opacity peer-checked:opacity-0">☀️</span>
+            <span class="absolute left-1 top-1 w-4 h-4 flex items-center justify-center text-[10px] leading-none opacity-0 transition-opacity peer-checked:opacity-100 peer-checked:translate-x-5">🌙</span>
+          </span>
+          <span class="text-body">Modo oscuro</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-4 sm:p-8">
+      <form class="flex flex-col sm:flex-row gap-4 mb-8">
+        <input
+          type="text"
+          placeholder="Escriba el nombre del país..."
+          class="flex-1 border border-border rounded-md p-3 text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        />
+        <select class="border border-border rounded-md p-3 text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+          <option>Filtrar por región...</option>
+          <option>África</option>
+          <option>América</option>
+          <option>Asia</option>
+          <option>Europa</option>
+          <option>Oceanía</option>
+        </select>
+        <button
+          type="submit"
+          class="bg-primary text-ink-inverse rounded-md px-6 py-3 font-bold transition-colors hover:bg-accent active:brightness-90 dark:bg-slate-700 dark:text-sky-400 dark:hover:bg-slate-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          Buscar
+        </button>
+      </form>
+
+      <h1 class="text-2xl sm:text-heading-section font-bold mb-4">Listado de países</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Tarjeta ACTIVA: única con página de detalle real -->
+          <article class="bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <img src="https://flagcdn.com/w320/sv.png" alt="Bandera de El Salvador" class="aspect-3/2 w-full object-cover" />
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">El Salvador</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 6.4 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Centro América</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: San Salvador</p>
+              <a href="/src/pages/pais.html" class="block text-center rounded-md px-4 py-2 font-bold transition-colors bg-primary text-ink-inverse hover:bg-accent active:brightness-90 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:hover:bg-accent dark:hover:text-ink-inverse dark:hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/de.png" alt="Bandera de Alemania" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">Alemania</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 83,5 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Europa</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Berlín</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/no.png" alt="Bandera de Noruega" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">Noruega</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 5,67 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Europa</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Oslo</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/mx.png" alt="Bandera de México" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">México</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 133 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Norteamérica</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Ciudad de México</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/br.png" alt="Bandera de Brasil" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">Brasil</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 213,5 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Sudamérica</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Brasília</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/nz.png" alt="Bandera de Nueva Zelanda" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">Nueva Zelanda</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 5,29 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Oceanía</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Wellington</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/es.png" alt="Bandera de España" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">España</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 49.8 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Europa</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: Madrid</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+
+          <!-- Tarjeta INACTIVA: se ve normal; el aviso gris solo tapa la bandera al hacer hover/focus -->
+          <article class="group bg-surface dark:bg-slate-800 border-2 border-border rounded-sm overflow-hidden transition-colors">
+            <div class="relative">
+              <img src="https://flagcdn.com/w320/fr.png" alt="Bandera de Francia" class="aspect-3/2 w-full object-cover" />
+              <div class="pointer-events-none absolute inset-0 flex items-center justify-center bg-gray-500 text-center text-white font-bold text-body-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                Más información próximamente
+              </div>
+            </div>
+            <div class="p-4">
+            <h3 class="text-heading-card font-bold">Francia</h3>
+              <p class="text-body text-ink-muted dark:text-slate-400">Población: 68.7 millones</p>
+              <p class="text-body text-ink-muted dark:text-slate-400">Región: Europa</p>
+              <p class="text-body text-ink-muted dark:text-slate-400 mb-3">Capital: París</p>
+              <span tabindex="0" role="button" aria-disabled="true" class="block text-center rounded-md px-4 py-2 font-bold select-none cursor-not-allowed transition-colors bg-primary text-ink-inverse group-hover:bg-gray-500 group-focus-within:bg-gray-500 dark:bg-transparent dark:border dark:border-border dark:text-sky-400 dark:group-hover:bg-slate-600 dark:group-hover:border-slate-600 dark:group-hover:text-slate-300 dark:group-focus-within:bg-slate-600 dark:group-focus-within:border-slate-600 dark:group-focus-within:text-slate-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Ver detalles →</span>
+            </div>
+          </article>
+      </div>
+    </main>
+
+    <footer class="bg-primary dark:bg-slate-700 text-ink-inverse text-center p-4 mt-8 transition-colors">
+      <p class="text-body">Explorer App &copy; 2026 Explorer App, Universidad de Oriente - Diseño Web Adaptable</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

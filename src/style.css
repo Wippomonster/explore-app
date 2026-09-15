@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  
+  /*COLORES PRINCIPALES*/
+
+  --color-primary: #345995;
+  --color-secondary: #348A95;
+  --color-accent: #F79256;
+
+  --color-bg: #F7FAFC;
+  --color-surface: #FFFAFA;
+
+  --color-ink: #1F1F1F;
+  --color-ink-muted: #818181;
+  --color-ink-inverse: #FFFFFF;
+
+  --color-border: #2A8C77;
+
+  /*COLORES PARA MODO OSCURO*/
+
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-header: #334155;
+  --color-dark-text: #f1f5f9;
+  --color-dark-muted: #94a3b8;
+  --color-dark-accent: #2DD4BF;
+
+  /*TIPOGRAFÍA*/
+
+  --text-display: 36px;
+  --text-heading-section: 24px;
+  --text-heading-card: 20px;
+  --text-body-lg: 16px;
+  --text-body: 14px;
+
+  /*TAMAÑOS PARA DETALLE DE PAÍS*/
+
+  --text-country-title: 56px;
+  --text-country-data: 28px;
+  --text-country-label: 28px;
+
+  /*BORDES*/
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+}
