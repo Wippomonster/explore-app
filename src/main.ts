@@ -1,5 +1,11 @@
 import './style.css'
 
+import { fetchCountries } from './api/countries'
+import type { Country } from './types/country'
+import { filterCountries } from './utils/filter'
+import { debounce } from './utils/debounce'
+import { renderCountries, renderEmpty, renderError, renderLoading } from './render/countryGrid'
+
 // MODO OSCURO
 
 function applyTheme(isDark: boolean) {
@@ -73,3 +79,59 @@ document.querySelectorAll<HTMLInputElement>('[data-theme-toggle]')
     })
 
   })
+
+  function initCountries(): void {
+  const grid = document.querySelector<HTMLElement>('#country-grid')
+  const form = document.querySelector<HTMLFormElement>('#filters-form')
+  const searchInput = document.querySelector<HTMLInputElement>('#search-input')
+  const regionSelect = document.querySelector<HTMLSelectElement>('#region-select')
+  const status = document.querySelector<HTMLElement>('#status-message')
+
+  // Esta función corre en todas las páginas; si no hay grid (ej. pais.html), no hace nada
+  if (!grid || !form || !searchInput || !regionSelect || !status) return
+
+  let allCountries: Country[] = []
+  let isLoaded = false
+
+  function updateGrid(): void {
+    if (!isLoaded || !grid || !status) return
+    const filtered = filterCountries(allCountries, searchInput!.value, regionSelect!.value)
+
+    if (filtered.length === 0) {
+      renderEmpty(grid)
+      status.textContent = 'Sin resultados'
+      return
+    }
+
+    renderCountries(grid, filtered)
+    status.textContent = `Mostrando ${filtered.length} de ${allCountries.length} países`
+  }
+
+  async function loadCountries(): Promise<void> {
+    if (!grid || !status) return
+    status.textContent = 'Cargando países...'
+    renderLoading(grid)
+
+    try {
+      allCountries = await fetchCountries()
+      isLoaded = true
+      updateGrid()
+    } catch (error) {
+      console.error(error)
+      status.textContent = ''
+      renderError(grid, () => void loadCountries())
+    }
+  }
+
+  const debouncedUpdate = debounce(updateGrid, 300)
+  searchInput.addEventListener('input', debouncedUpdate) // texto: espera 300 ms
+  regionSelect.addEventListener('change', updateGrid) // región: inmediato
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    updateGrid()
+  })
+
+  void loadCountries()
+}
+
+initCountries()
