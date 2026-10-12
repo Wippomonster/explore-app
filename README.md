@@ -2,7 +2,7 @@
 
 Aplicación web adaptable (responsive) para explorar países del mundo: permite buscar por nombre y filtrar por región. Proyecto de la materia Diseño Web Adaptable (UNIVO), basado en un diseño hecho en Figma.
 
-🔗 **Producción:** PENDIENTE_URL_PRODUCCION
+🔗 **Producción:** (https://explore-app-delta.vercel.app)
 🏷️ **Versión Vanilla TypeScript entregada:** [entrega-lab-3](https://github.com/Wippomonster/explore-app/tree/entrega-lab-3)
 
 ![Captura de la app](docs/captura-app.png)
@@ -74,5 +74,5 @@ Los datos vienen de [RestCountries v5](https://restcountries.com). Se piden solo
 
 ## Enlaces del flujo
 
-- Pull Request integrado: PENDIENTE_URL_PR
-- URL de preview: PENDIENTE_URL_PREVIEW
+- Pull Request integrado: (https://github.com/Wippomonster/explore-app/pull/1)
+- URL de preview: https://explore-app-git-fix-nombre-largo-tarjeta-univo2.vercel.app
