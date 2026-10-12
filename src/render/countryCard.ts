@@ -41,7 +41,7 @@ export function createCountryCard(country: Country): HTMLElement {
   body.className = 'p-4'
 
   const title = document.createElement('h3')
-  title.className = 'text-heading-card font-bold'
+  title.className = 'text-heading-card font-bold break-words'
   title.textContent = getDisplayName(country)
 
   const link = document.createElement('a')
